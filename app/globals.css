@@ -1,0 +1,95 @@
+@layer utilities {
+  .bg-background { background-color: #0F172A !important; }
+  .text-text { color: #E5E7EB !important; }
+  .text-subtext { color: #94A3B8 !important; }
+  .bg-primary { background-color: #3B82F6 !important; }
+  .text-primary { color: #3B82F6 !important; }
+  .bg-secondary { background-color: #8B5CF6 !important; }
+  .text-secondary { color: #8B5CF6 !important; }
+  .bg-dark { background-color: #111827 !important; }
+  .text-dark { color: #111827 !important; }
+  .bg-light { background-color: #F3F4F6 !important; }
+  .text-light { color: #F3F4F6 !important; }
+  .rounded-card { border-radius: 12px !important; }
+  .rounded-btn { border-radius: 8px !important; }
+  .shadow-soft { box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important; }
+  .p-card { padding: 24px !important; }
+  .text-h1 { font-size: 36px !important; line-height: 1.3 !important; font-weight: 700 !important; }
+  .text-h2 { font-size: 28px !important; line-height: 1.4 !important; font-weight: 600 !important; }
+  .text-h3 { font-size: 20px !important; line-height: 1.5 !important; font-weight: 600 !important; }
+  .focus-outline {
+    outline: 2px solid #3B82F6 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* purgecss start ignore
+bg-background text-text bg-primary text-primary bg-secondary text-secondary bg-dark text-dark bg-light text-light text-subtext rounded-card rounded-btn shadow-soft
+purgecss end ignore */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', 'Montserrat', 'Fira Code', 'PingFang SC', system-ui, sans-serif;
+  }
+  body {
+    @apply min-h-screen;
+  }
+  h1 {
+    @apply font-bold mb-4;
+  }
+  h2 {
+    @apply font-semibold mb-3;
+  }
+  h3 {
+    @apply font-semibold mb-2;
+  }
+  p {
+    @apply text-base mb-2;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-btn px-6 py-2 font-semibold shadow-soft hover:bg-blue-700 hover:scale-105 hover:shadow-xl transition-all duration-200 disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white border border-primary rounded-btn px-6 py-2 font-semibold hover:bg-blue-50 hover:scale-105 hover:shadow-lg transition-all duration-200 disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed;
+  }
+  .btn-text {
+    @apply bg-transparent px-4 py-2 rounded-btn hover:bg-blue-50 hover:scale-105 transition-all duration-200 disabled:text-gray-400 disabled:cursor-not-allowed;
+  }
+  .card {
+    @apply rounded-card shadow-soft p-card transition-all duration-200 hover:shadow-2xl hover:border-secondary hover:scale-105 hover:ring-2 hover:ring-secondary border border-transparent flex flex-col;
+  }
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2;
+  }
+  .input {
+    @apply w-full h-11 px-4 py-2 border border-gray-300 rounded-btn focus:outline-none focus:border-primary transition;
+  }
+  .input:disabled {
+    @apply bg-gray-100 text-gray-400 cursor-not-allowed;
+  }
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2;
+  }
+  .nav-link {
+    @apply text-primary hover:underline transition;
+  }
+  .btn-primary, .btn-secondary, .btn-text, button, a {
+    @apply focus:outline-none focus-visible:focus-outline;
+  }
+  .input {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
+  }
+}
+
+/*
+  The custom component styles that were here previously were causing a build failure.
+  They have been temporarily removed to fix the basic layout and utility classes.
+  We will re-introduce them correctly in the next step.
+*/
