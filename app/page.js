@@ -99,7 +99,7 @@ export default async function Home() {
         <h2 className="text-h2 font-semibold mb-8 text-center text-white">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <a key={project.id} href={project.url || '#'} target="_blank" rel="noopener noreferrer" className="card-link-wrapper">
+            <Link key={project.id} href={`/projects/${project.id}`} className="card-link-wrapper">
               <div className="card">
                 {project.cover && (() => {
                   const coverUrl = decodeURIComponent(project.cover);
@@ -125,7 +125,7 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="text-center mt-8">
